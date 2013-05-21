@@ -1,0 +1,16 @@
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+	
+	repositories{
+		maven{
+			url "http://localhost:8081/nexus/content/groups/public"
+		}
+	}
+	
+	dependencies{
+		compile group: 'com.goalfinance.core.dependency', name: 'spring-deps', version: '1.0.0'
+		compile group: 'org.hibernate', name: 'hibernate-core', version: '4.2.0.Final'
+		testCompile group: 'junit', name: 'junit', version: '4.11'
+	}
+}
