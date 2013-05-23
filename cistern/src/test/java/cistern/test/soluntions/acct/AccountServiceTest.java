@@ -36,8 +36,8 @@ import cistern.solutions.acct.service.AccountService;
 import cistern.solutions.acct.service.JournalService;
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:cistern/test/solutions/acct/applicationContext.xml"})
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations = {"classpath:cistern/test/solutions/acct/applicationContext.xml"})
 public class AccountServiceTest {
 	
 	private AccountDao accountDao;
@@ -58,108 +58,108 @@ public class AccountServiceTest {
 	
 	@Test
 	public void addTestAccountInfo() throws Exception{
-		Account cashAccount = new Account();
-		cashAccount.setAccountNo("0001");
-		cashAccount.setAccountName("现金账户");
-		cashAccount.setGeneralLedgerFlag(true);
-		cashAccount.setMemo("现金账户总账");
-		cashAccount.setParentIdAcct(Account.NULL_PARENT_ID_ACCT);
-		accountDao.add(cashAccount);
-		
-		Account debitCardAccount = new Account();
-		debitCardAccount.setAccountNo("000101");
-		debitCardAccount.setAccountName("银行借记卡");
-		debitCardAccount.setGeneralLedgerFlag(false);
-		debitCardAccount.setMemo("银行存款");
-		debitCardAccount.setParentIdAcct(cashAccount.getIdAcct());
-		accountDao.add(debitCardAccount);
-		
-		
-		Account walletAccount = new Account();
-		walletAccount.setAccountNo("000102");
-		walletAccount.setAccountName("钱包");
-		walletAccount.setGeneralLedgerFlag(false);
-		walletAccount.setMemo("钱包账户");
-		walletAccount.setParentIdAcct(cashAccount.getIdAcct());
-		accountDao.add(walletAccount);
-		
-		Account wallet1Account = new Account();
-		wallet1Account.setAccountNo("00010201");
-		wallet1Account.setAccountName("子钱包1");
-		wallet1Account.setGeneralLedgerFlag(false);
-		wallet1Account.setMemo("钱包账户");
-		wallet1Account.setParentIdAcct(walletAccount.getIdAcct());
-		accountDao.add(wallet1Account);
-		
-		
-		AccountPeriod accountPeriod = new AccountPeriod();
-		accountPeriod.setPeriodNo("0001");
-		accountPeriod.setFiscalYear("2011");
-		accountPeriod.setActivePeroidFlag(true);
-		accountPeriodDao.add(accountPeriod);
-		
-		AccountBalance cashBalance = new AccountBalance();
-		cashBalance.setIdAcct(cashAccount.getIdAcct());
-		cashBalance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
-		accountBalanceDao.add(cashBalance);
-		
-		AccountBalance debitCardBalance = new AccountBalance();
-		debitCardBalance.setIdAcct(debitCardAccount.getIdAcct());
-		debitCardBalance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
-		accountBalanceDao.add(debitCardBalance);
-		
-		AccountBalance walletBalance = new AccountBalance();
-		walletBalance.setIdAcct(walletAccount.getIdAcct());
-		walletBalance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
-		accountBalanceDao.add(walletBalance);
-		
-		AccountBalance wallet1Balance = new AccountBalance();
-		wallet1Balance.setIdAcct(wallet1Account.getIdAcct());
-		wallet1Balance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
-		accountBalanceDao.add(wallet1Balance);
-		
-		Account ar = new Account();
-		ar.setAccountNo("0002");
-		ar.setAccountName("应收账款");
-		ar.setGeneralLedgerFlag(true);
-		ar.setMemo("应收账款");
-		ar.setParentIdAcct(Account.NULL_PARENT_ID_ACCT);
-		accountDao.add(ar);
-		
-		Account salaryAccount = new Account();
-		salaryAccount.setAccountNo("000201");
-		salaryAccount.setAccountName("应收账款--别人欠债");
-		salaryAccount.setGeneralLedgerFlag(false);
-		salaryAccount.setMemo("应收账款--别人欠债");
-		salaryAccount.setParentIdAcct(ar.getIdAcct());
-		accountDao.add(salaryAccount);
-		
-		Account salary1Account = new Account();
-		salary1Account.setAccountNo("00020101");
-		salary1Account.setAccountName("应收账款--别人欠债--男人欠债");
-		salary1Account.setGeneralLedgerFlag(false);
-		salary1Account.setMemo("应收账款--别人欠债--男人欠债");
-		salary1Account.setParentIdAcct(salaryAccount.getIdAcct());
-		accountDao.add(salary1Account);
-		
-		
-		AccountBalance arBalance = new AccountBalance();
-		arBalance.setCFFlg(false);
-		arBalance.setIdAcct(ar.getIdAcct());
-		arBalance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
-		accountBalanceDao.add(arBalance);
-		
-		AccountBalance salaryBalance = new AccountBalance();
-		salaryBalance.setCFFlg(false);
-		salaryBalance.setIdAcct(salaryAccount.getIdAcct());
-		salaryBalance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
-		accountBalanceDao.add(salaryBalance);
-		
-		AccountBalance salary1Balance = new AccountBalance();
-		salary1Balance.setCFFlg(false);
-		salary1Balance.setIdAcct(salary1Account.getIdAcct());
-		salary1Balance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
-		accountBalanceDao.add(salary1Balance);
+//		Account cashAccount = new Account();
+//		cashAccount.setAccountNo("0001");
+//		cashAccount.setAccountName("现金账户");
+//		cashAccount.setGeneralLedgerFlag(true);
+//		cashAccount.setMemo("现金账户总账");
+//		cashAccount.setParentIdAcct(Account.NULL_PARENT_ID_ACCT);
+//		accountDao.add(cashAccount);
+//		
+//		Account debitCardAccount = new Account();
+//		debitCardAccount.setAccountNo("000101");
+//		debitCardAccount.setAccountName("银行借记卡");
+//		debitCardAccount.setGeneralLedgerFlag(false);
+//		debitCardAccount.setMemo("银行存款");
+//		debitCardAccount.setParentIdAcct(cashAccount.getIdAcct());
+//		accountDao.add(debitCardAccount);
+//		
+//		
+//		Account walletAccount = new Account();
+//		walletAccount.setAccountNo("000102");
+//		walletAccount.setAccountName("钱包");
+//		walletAccount.setGeneralLedgerFlag(false);
+//		walletAccount.setMemo("钱包账户");
+//		walletAccount.setParentIdAcct(cashAccount.getIdAcct());
+//		accountDao.add(walletAccount);
+//		
+//		Account wallet1Account = new Account();
+//		wallet1Account.setAccountNo("00010201");
+//		wallet1Account.setAccountName("子钱包1");
+//		wallet1Account.setGeneralLedgerFlag(false);
+//		wallet1Account.setMemo("钱包账户");
+//		wallet1Account.setParentIdAcct(walletAccount.getIdAcct());
+//		accountDao.add(wallet1Account);
+//		
+//		
+//		AccountPeriod accountPeriod = new AccountPeriod();
+//		accountPeriod.setPeriodNo("0001");
+//		accountPeriod.setFiscalYear("2011");
+//		accountPeriod.setActivePeroidFlag(true);
+//		accountPeriodDao.add(accountPeriod);
+//		
+//		AccountBalance cashBalance = new AccountBalance();
+//		cashBalance.setIdAcct(cashAccount.getIdAcct());
+//		cashBalance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
+//		accountBalanceDao.add(cashBalance);
+//		
+//		AccountBalance debitCardBalance = new AccountBalance();
+//		debitCardBalance.setIdAcct(debitCardAccount.getIdAcct());
+//		debitCardBalance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
+//		accountBalanceDao.add(debitCardBalance);
+//		
+//		AccountBalance walletBalance = new AccountBalance();
+//		walletBalance.setIdAcct(walletAccount.getIdAcct());
+//		walletBalance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
+//		accountBalanceDao.add(walletBalance);
+//		
+//		AccountBalance wallet1Balance = new AccountBalance();
+//		wallet1Balance.setIdAcct(wallet1Account.getIdAcct());
+//		wallet1Balance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
+//		accountBalanceDao.add(wallet1Balance);
+//		
+//		Account ar = new Account();
+//		ar.setAccountNo("0002");
+//		ar.setAccountName("应收账款");
+//		ar.setGeneralLedgerFlag(true);
+//		ar.setMemo("应收账款");
+//		ar.setParentIdAcct(Account.NULL_PARENT_ID_ACCT);
+//		accountDao.add(ar);
+//		
+//		Account salaryAccount = new Account();
+//		salaryAccount.setAccountNo("000201");
+//		salaryAccount.setAccountName("应收账款--别人欠债");
+//		salaryAccount.setGeneralLedgerFlag(false);
+//		salaryAccount.setMemo("应收账款--别人欠债");
+//		salaryAccount.setParentIdAcct(ar.getIdAcct());
+//		accountDao.add(salaryAccount);
+//		
+//		Account salary1Account = new Account();
+//		salary1Account.setAccountNo("00020101");
+//		salary1Account.setAccountName("应收账款--别人欠债--男人欠债");
+//		salary1Account.setGeneralLedgerFlag(false);
+//		salary1Account.setMemo("应收账款--别人欠债--男人欠债");
+//		salary1Account.setParentIdAcct(salaryAccount.getIdAcct());
+//		accountDao.add(salary1Account);
+//		
+//		
+//		AccountBalance arBalance = new AccountBalance();
+//		arBalance.setCFFlg(false);
+//		arBalance.setIdAcct(ar.getIdAcct());
+//		arBalance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
+//		accountBalanceDao.add(arBalance);
+//		
+//		AccountBalance salaryBalance = new AccountBalance();
+//		salaryBalance.setCFFlg(false);
+//		salaryBalance.setIdAcct(salaryAccount.getIdAcct());
+//		salaryBalance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
+//		accountBalanceDao.add(salaryBalance);
+//		
+//		AccountBalance salary1Balance = new AccountBalance();
+//		salary1Balance.setCFFlg(false);
+//		salary1Balance.setIdAcct(salary1Account.getIdAcct());
+//		salary1Balance.setIdAcctPeriod(accountPeriod.getIdAcctPeriod());
+//		accountBalanceDao.add(salary1Balance);
 	}
 
 	
