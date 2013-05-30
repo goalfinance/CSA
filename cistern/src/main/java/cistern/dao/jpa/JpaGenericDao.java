@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cistern.dao.hibernate.hibernate4;
+package cistern.dao.jpa;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -17,60 +17,57 @@ import cistern.dao.ql.SimpleQueryFactory;
 import cistern.dao.ql.impl.SimpleQueryFactoryImpl;
 
 /**
- * Generic Dao implementation for hibernate 4 including some query method.
- * 
- * @author panqr(panqingrong@gmail.com)
+ * @author panqingrong
  * 
  */
-public class Hibernate4GenericDao<T, I extends Serializable, Q> extends
-		Hibernate4CrudDao<T, I> implements GenericDao<T, I, Q> {
+public class JpaGenericDao<T, I extends Serializable, Q> extends
+		JpaCrudDao<T, I> implements GenericDao<T, I, Q> {
 
 	private SimpleQueryFactory simpleQueryFactory = new SimpleQueryFactoryImpl();
 
 	private Class<? extends Q> conditionClazz;
 
-	public Hibernate4GenericDao(Class<? extends T> clazz,
-			Class<? extends Q> condClazz) {
+	public JpaGenericDao(Class<? extends T> clazz,
+			Class<? extends Q> conditionClazz) {
 		super(clazz);
-		this.conditionClazz = condClazz;
+		this.conditionClazz = conditionClazz;
 	}
 
 	@SuppressWarnings("unchecked")
-	public Hibernate4GenericDao() {
+	public JpaGenericDao() {
 		super();
-		this.conditionClazz = (Class<? extends Q>) ((ParameterizedType) getClass()
+		conditionClazz = (Class<? extends Q>) ((ParameterizedType) getClass()
 				.getGenericSuperclass()).getActualTypeArguments()[2];
+
 	}
-	
+
 	@PostConstruct
-	public void init(){
+	public void init() {
 		simpleQueryFactory.registerCondition(conditionClazz);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<T> query(Q cond, long firstResult, long maxResults) {
 		HQLQuery hqlQuery = simpleQueryFactory.genHQLQuery(cond);
-		return (List<T>) Hibernate4Util.queryElements(getSession(), hqlQuery,
+
+		return (List<T>) JpaUtil.queryElements(getEntityManager(), hqlQuery,
 				firstResult, maxResults);
 	}
 
 	@Override
-	@Deprecated
 	public T getFirst(Q cond) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	@Deprecated
 	public T getFirstForUpdate(Q cond) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	@Deprecated
 	public List<T> loadForUpdate(Q cond) {
 		// TODO Auto-generated method stub
 		return null;
@@ -79,18 +76,16 @@ public class Hibernate4GenericDao<T, I extends Serializable, Q> extends
 	@Override
 	public long count(Q cond) {
 		HQLQuery hqlQuery = simpleQueryFactory.genHQLQuery(cond);
-		return Hibernate4Util.countElements(getSession(), hqlQuery);
+		return JpaUtil.countElements(getEntityManager(), hqlQuery);
 	}
 
 	@Override
-	@Deprecated
 	public List<Object> sum(Q cond, List<String> propertyNames) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	@Deprecated
 	public Object simpleSum(Q cond, String propertyName) {
 		// TODO Auto-generated method stub
 		return null;
@@ -103,12 +98,11 @@ public class Hibernate4GenericDao<T, I extends Serializable, Q> extends
 		qrs.setElements(query(cond, firstResult, maxResults));
 		qrs.setCount(count(cond));
 		qrs.setFirst(firstResult);
-		
+
 		return qrs;
 	}
 
 	@Override
-	@Deprecated
 	public int bulkUpdate(Q cond, Map<String, Object> values) {
 		// TODO Auto-generated method stub
 		return 0;

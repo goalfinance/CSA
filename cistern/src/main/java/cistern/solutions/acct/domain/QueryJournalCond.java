@@ -5,9 +5,9 @@ package cistern.solutions.acct.domain;
 
 import java.util.Date;
 
-import cistern.dao.hibernate.simplequery.OrderableCondition;
-import cistern.dao.hibernate.simplequery.annotation.Condition;
-import cistern.dao.hibernate.simplequery.annotation.Expression;
+import cistern.dao.ql.annotation.Condition;
+import cistern.dao.ql.annotation.Expression;
+import cistern.dao.ql.impl.OrderableCondition;
 
 /**
  * @project: cistern

@@ -10,7 +10,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import cistern.dao.hibernate.HQLQuery;
+import cistern.dao.ql.HQLQuery;
 
 /**
  * Utility for using facilities of hibernate4.

@@ -15,10 +15,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import cistern.dao.GenericDao;
 import cistern.dao.QueryResult;
 
-import cistern.dao.hibernate.HQLQuery;
-import cistern.dao.hibernate.simplequery.ConditionMeta;
-import cistern.dao.hibernate.simplequery.SimpleQueryDefinition;
-import cistern.dao.hibernate.simplequery.SimpleQueryFactory;
+import cistern.dao.ql.HQLQuery;
+import cistern.dao.ql.SimpleQueryFactory;
+import cistern.dao.ql.impl.ConditionMeta;
+import cistern.dao.ql.impl.SimpleQueryDefinition;
 
 public class HibernateGenericDao<T, I extends Serializable, Q> extends HibernateCrudDao<T, I> implements
 		GenericDao<T, I, Q> {

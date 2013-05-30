@@ -1,10 +1,6 @@
-/**
- * 
- */
-package cistern.test.dao.hibernate.hibernate4;
+package cistern.test.dao.jpa;
 
 import javax.annotation.Resource;
-
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,19 +16,15 @@ import cistern.solutions.acct.domain.Account;
 import cistern.test.dao.AccountCrudDao;
 import cistern.test.dao.AccountService;
 
-/**
- * @author panqr(panqingrong@gmail.com)
- *
- */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:cistern/test/dao/hibernate/hibernate4/applicationContext.xml"})
-public class Hibernate4CrudDaoTest {
+@ContextConfiguration(locations={"classpath:cistern/test/dao/jpa/applicationContext.xml"})
+public class JpaCrudDaoTest {
 	
 	private AccountCrudDao accountDao;
 	
 	@Test
 	@Transactional(propagation=Propagation.REQUIRED)
-	public void crudTest() throws Exception{
+	public void testCrud() throws Exception{
 		Account cashAccount = new Account();
 		cashAccount.setAccountNo("0001");
 		cashAccount.setAccountName("现金账户");
@@ -50,66 +42,35 @@ public class Hibernate4CrudDaoTest {
 		accountDao.update(cashAcctInDb);
 		Account cashAcctAfterUpdate = accountDao.get(cashAcctInDb.getIdAcct());
 		Assert.assertEquals(cashAcctInDb.toString(), cashAcctAfterUpdate.toString());
-		
-		//Test delete by domain object.
-		accountDao.delete(cashAcctAfterUpdate);
-		Assert.assertNotNull(cashAcctAfterUpdate.getIdAcct());
-		System.out.println("idAcct='" + cashAcctAfterUpdate.getIdAcct() + "'");
-		Account cashAcctAfterDelete = accountDao.get(cashAcctAfterUpdate.getIdAcct());
-		Assert.assertNull(cashAcctAfterDelete);
 	}
-	
-	@Test
-	@Transactional(propagation=Propagation.REQUIRED)
-	public void getForUpdateTest() throws Exception{
-		Account cashAccount = new Account();
-		cashAccount.setAccountNo("0001");
-		cashAccount.setAccountName("现金账户");
-		cashAccount.setGeneralLedgerFlag(true);
-		cashAccount.setMemo("现金账户总账");
-		cashAccount.setParentIdAcct(Account.NULL_PARENT_ID_ACCT);
-		accountDao.add(cashAccount);
-		
-		Account cashAccountInDb = (Account)accountDao.getForUpdate(cashAccount.getIdAcct());
-		Assert.assertNotNull(cashAccountInDb);
-		Assert.assertEquals(cashAccount.toString(), cashAccountInDb.toString());
-	}
-	
-	
-	
-	
 
-	/**
-	 * @return the accountDao
-	 */
-	public AccountCrudDao getAccountDao() {
+	public AccountCrudDao getAccountCrudDao() {
 		return accountDao;
 	}
 
-	/**
-	 * @param accountDao the accountDao to set
-	 */
-	@Resource(name="cistern.test.dao.hibernate.hibernate4.AccountCrudDao")
-	public void setAccountDao(AccountCrudDao accountDao) {
-		this.accountDao = accountDao;
+	@Resource(name="cistern.test.dao.jpa.AccountCrudDao")
+	public void setAccountCrudDao(AccountCrudDao accountCrudDao) {
+		this.accountDao = accountCrudDao;
 	}
-	
+
 	public static void main(String[] args) throws Exception{
-		ApplicationContext ap = new FileSystemXmlApplicationContext("classpath:cistern/test/dao/hibernate4/applicationContext.xml");
+		ApplicationContext ap = new FileSystemXmlApplicationContext("classpath:cistern/test/dao/jpa/applicationContext.xml");
 		
-		AccountService as = (AccountService)ap.getBean("cistern.test.AccountService");
+		AccountService as = (AccountService)ap.getBean("cistern.test.jpa.AccountService");
 		Account cashAccount = new Account();
 		cashAccount.setAccountNo("0001");
 		cashAccount.setAccountName("现金账户");
 		cashAccount.setGeneralLedgerFlag(true);
 		cashAccount.setMemo("现金账户总账");
 		cashAccount.setParentIdAcct(Account.NULL_PARENT_ID_ACCT);
-		as.add(cashAccount);
+		//as.add(cashAccount);
 		
-		as.getForUpdate(cashAccount.getIdAcct());
 		
+		AccountCrudDao accountDao = (AccountCrudDao)ap.getBean("cistern.test.dao.jpa.AccountCrudDao");
+		accountDao.add(cashAccount);
 		System.out.println("idAcct='" + cashAccount.getIdAcct() + "'");
+		accountDao.loadForUpdate(1800L);		
+		
+		Thread.sleep(60 * 1000L * 60);
 	}
-	
-
 }

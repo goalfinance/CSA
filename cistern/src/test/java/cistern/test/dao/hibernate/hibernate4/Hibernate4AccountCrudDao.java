@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import cistern.dao.hibernate.hibernate4.Hibernate4CrudDao;
 import cistern.solutions.acct.domain.Account;
+import cistern.test.dao.AccountCrudDao;
 
 /**
  * @author panqr(panqingrong@gmail.com)

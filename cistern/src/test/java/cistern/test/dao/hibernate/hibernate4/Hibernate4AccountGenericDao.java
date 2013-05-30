@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import cistern.dao.hibernate.hibernate4.Hibernate4GenericDao;
 import cistern.solutions.acct.domain.Account;
 import cistern.solutions.acct.domain.QueryAccountCond;
+import cistern.test.dao.AccountGenericDao;
 
 /**
  * @author panqr(panqingrong@gmail.com)

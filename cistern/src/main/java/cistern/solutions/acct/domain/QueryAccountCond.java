@@ -5,9 +5,9 @@ package cistern.solutions.acct.domain;
 
 import java.util.Date;
 
-import cistern.dao.hibernate.simplequery.OrderableCondition;
-import cistern.dao.hibernate.simplequery.annotation.Condition;
-import cistern.dao.hibernate.simplequery.annotation.Expression;
+import cistern.dao.ql.annotation.Condition;
+import cistern.dao.ql.annotation.Expression;
+import cistern.dao.ql.impl.OrderableCondition;
 
 /**
  * @project: cistern
@@ -81,7 +81,7 @@ public class QueryAccountCond extends OrderableCondition {
 		this.accountName = accountName;
 	}
 
-	@Expression(persistenceProperty="createDate", operator=">=", convertor="cistern.dao.hibernate.simplequery.RoundToStartTimeConvertor")
+	@Expression(persistenceProperty="createDate", operator=">=", convertorClass=cistern.dao.ql.impl.RoundToStartTimeConvertor.class)
 	public Date getBeginCreateDate() {
 		return beginCreateDate;
 	}
@@ -90,7 +90,7 @@ public class QueryAccountCond extends OrderableCondition {
 		this.beginCreateDate = beginCreateDate;
 	}
 
-	@Expression(persistenceProperty="createDate", operator="<=", convertor="cistern.dao.hibernate.simplequery.RoundToEndTimeConvertor")
+	@Expression(persistenceProperty="createDate", operator="<=", convertorClass=cistern.dao.ql.impl.RoundToEndTimeConvertor.class)
 	public Date getEndCreateDate() {
 		return endCreateDate;
 	}

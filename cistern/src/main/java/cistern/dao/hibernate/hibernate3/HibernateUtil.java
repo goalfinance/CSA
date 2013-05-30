@@ -24,7 +24,7 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import cistern.common.AppBizException;
 import cistern.dao.IterateCallback;
-import cistern.dao.hibernate.HQLQuery;
+import cistern.dao.ql.HQLQuery;
 
 
 /**

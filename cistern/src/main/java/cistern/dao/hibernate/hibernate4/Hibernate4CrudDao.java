@@ -8,6 +8,7 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.annotation.Resource;
+
 import org.hibernate.LockOptions;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

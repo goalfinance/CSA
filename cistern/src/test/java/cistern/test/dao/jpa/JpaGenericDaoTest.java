@@ -1,12 +1,11 @@
 /**
  * 
  */
-package cistern.test.dao.hibernate.hibernate4;
+package cistern.test.dao.jpa;
 
 import java.util.List;
 
 import javax.annotation.Resource;
-
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,15 +21,15 @@ import cistern.solutions.acct.domain.QueryAccountCond;
 import cistern.test.dao.AccountGenericDao;
 
 /**
- * @author panqr(panqingrong@gmail.com)
+ * @author panqingrong
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:cistern/test/dao/hibernate/hibernate4/applicationContext.xml"})
-public class Hibernate4GenericDaoTest {
+@ContextConfiguration(locations={"classpath:cistern/test/dao/jpa/applicationContext.xml"})
+public class JpaGenericDaoTest {
 	
 	private AccountGenericDao accountGenericDao;
-
+	
 	@Test
 	@Transactional(propagation=Propagation.REQUIRED)
 	public void pagingQueryTest() throws Exception{
@@ -151,18 +150,15 @@ public class Hibernate4GenericDaoTest {
 		Assert.assertEquals(5, accountGenericDao.count(cond));
 	}
 
-	/**
-	 * @return the accountGenericDao
-	 */
-	public AccountGenericDao getAccountGenericDao() {
+	public AccountGenericDao getAccountGernicDao() {
 		return accountGenericDao;
 	}
 
-	/**
-	 * @param accountGenericDao the accountGenericDao to set
-	 */
-	@Resource(name="cistern.test.dao.hibernate.hibernate4.AccountGenericDao")
-	public void setAccountGenericDao(AccountGenericDao accountGenericDao) {
-		this.accountGenericDao = accountGenericDao;
+	@Resource(name="cistern.test.dao.jpa.AccountGenericDao")
+	public void setAccountGernicDao(AccountGenericDao accountGernicDao) {
+		this.accountGenericDao = accountGernicDao;
 	}
+	
+	
+
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package cistern.test.dao.hibernate.hibernate4;
+package cistern.test.dao.jpa;
 
 import javax.annotation.Resource;
 
@@ -17,7 +17,7 @@ import cistern.test.dao.AccountService;
  * @author panqr(panqingrong@gmail.com)
  *
  */
-@Service(value="cistern.test.AccountService")
+@Service(value="cistern.test.jpa.AccountService")
 public class AccountServiceImpl implements AccountService {
 
 	private AccountCrudDao accountCrudDao;
@@ -34,9 +34,9 @@ public class AccountServiceImpl implements AccountService {
 	}
 	
 	@Override
-	@Transactional(propagation=Propagation.REQUIRES_NEW)
+//	@Transactional(propagation=Propagation.REQUIRES_NEW)
 	public Account getForUpdate(Long id) {
-		Account account = accountCrudDao.getForUpdate(id);
+		Account account = accountCrudDao.loadForUpdate(id);
 		try {
 			Thread.sleep(10 * 60 * 1000L);
 		} catch (InterruptedException e) {
@@ -51,7 +51,7 @@ public class AccountServiceImpl implements AccountService {
 	public AccountCrudDao getAccountDao() {
 		return accountCrudDao;
 	}
-	@Resource(name="cistern.test.dao.hibernate.hibernate4.AccountCrudDao")
+	@Resource(name="cistern.test.dao.jpa.AccountCrudDao")
 	public void setAccountDao(AccountCrudDao accountDao) {
 		this.accountCrudDao = accountDao;
 	}
