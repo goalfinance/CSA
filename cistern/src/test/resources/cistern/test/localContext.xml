@@ -14,7 +14,7 @@
 		http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName">
+		<property name="driverClassName"> 
 			<value>oracle.jdbc.OracleDriver</value>
 		</property>
 		<property name="url">
