@@ -22,7 +22,6 @@ import org.apache.commons.logging.LogFactory;
 
 import cistern.dao.ql.HQLCondition;
 import cistern.dao.ql.HQLQuery;
-import cistern.dao.ql.SimpleQueryFactory;
 import cistern.dao.ql.annotation.Condition;
 import cistern.dao.ql.annotation.Expression;
 import cistern.dao.ql.annotation.Ignore;

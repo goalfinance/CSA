@@ -2,10 +2,11 @@
  * File SimpleQueryFactory.java
  * Created on 2004-7-13
  */
-package cistern.dao.ql;
+package cistern.dao.ql.impl;
 
-import cistern.dao.ql.impl.ConditionMeta;
-import cistern.dao.ql.impl.SimpleQueryDefinition;
+import cistern.dao.ql.HQLCondition;
+import cistern.dao.ql.HQLQuery;
+
 
 
 /**

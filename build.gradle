@@ -2,6 +2,21 @@ subprojects {
 	apply plugin: 'java'
 	apply plugin: 'eclipse'
 	
+	apply plugin: 'findbugs'
+	apply plugin: 'pmd'
+	
+	apply plugin: "sonar-runner"
+	
+	sonarRunner {
+    	sonarProperties {
+	        property "sonar.host.url", "http://localhost:9000"
+//	        property "sonar.jdbc.url", "jdbc:oracle:thin:@localhost:1521:XE"
+//	        property "sonar.jdbc.driverClassName", "oracle.jdbc.OracleDriver"
+//	        property "sonar.jdbc.username", "sonar"
+//	        property "sonar.jdbc.password", "sonar"
+    }
+}
+	
 	repositories{
 		maven{
 			url "http://localhost:8081/nexus/content/groups/public"

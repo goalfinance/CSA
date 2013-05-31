@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+
 /**
  * 条件属性类
  * 

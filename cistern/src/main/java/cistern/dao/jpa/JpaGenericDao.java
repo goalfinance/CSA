@@ -13,7 +13,7 @@ import javax.annotation.PostConstruct;
 import cistern.dao.GenericDao;
 import cistern.dao.QueryResult;
 import cistern.dao.ql.HQLQuery;
-import cistern.dao.ql.SimpleQueryFactory;
+import cistern.dao.ql.impl.SimpleQueryFactory;
 import cistern.dao.ql.impl.SimpleQueryFactoryImpl;
 
 /**

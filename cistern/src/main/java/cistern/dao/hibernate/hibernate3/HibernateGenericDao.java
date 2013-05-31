@@ -16,9 +16,9 @@ import cistern.dao.GenericDao;
 import cistern.dao.QueryResult;
 
 import cistern.dao.ql.HQLQuery;
-import cistern.dao.ql.SimpleQueryFactory;
 import cistern.dao.ql.impl.ConditionMeta;
 import cistern.dao.ql.impl.SimpleQueryDefinition;
+import cistern.dao.ql.impl.SimpleQueryFactory;
 
 public class HibernateGenericDao<T, I extends Serializable, Q> extends HibernateCrudDao<T, I> implements
 		GenericDao<T, I, Q> {
