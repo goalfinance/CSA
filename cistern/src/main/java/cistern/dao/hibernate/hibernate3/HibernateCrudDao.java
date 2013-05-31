@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import cistern.common.AppRTException;
 import cistern.dao.CrudDao;
 
 
@@ -95,7 +96,7 @@ public class HibernateCrudDao<T, I extends Serializable> extends HibernateDaoSup
 			public Object doInHibernate(Session sess) {
 				Transaction txn = sess.getTransaction();
 				if (txn == null || txn.isActive() == false) {
-					throw new RuntimeException("GetForUpdate must be called in tx.");
+					throw new AppRTException("GetForUpdate must be called in tx.", "");
 				}
 
 				sess.flush();

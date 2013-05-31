@@ -1,5 +1,7 @@
 package cistern.common;
 
+import java.util.Arrays;
+
 
 /**
  * @project: Cistern
@@ -51,7 +53,7 @@ public class AppRTException extends RuntimeException {
 	}
 
 	public void setArgs(Object[] objects) {
-		args = objects;
+		args = Arrays.copyOf(objects, objects.length);
 	}
 
 	public String getTextMessage() {

@@ -65,7 +65,7 @@ public class AccountPeriod implements Serializable {
 	/**
 	 * 结束日期
 	 */
-	private java.sql.Date ThruDate;
+	private java.sql.Date thruDate;
 	
 	/**
 	 * 是否为当前会计账期
@@ -125,11 +125,11 @@ public class AccountPeriod implements Serializable {
 
 	@Column(name="thru_date")
 	public java.sql.Date getThruDate() {
-		return ThruDate;
+		return thruDate;
 	}
 
 	public void setThruDate(java.sql.Date thruDate) {
-		ThruDate = thruDate;
+		thruDate = thruDate;
 	}
 
 	public void setActivePeroidFlag(Boolean activePeroidFlag) {

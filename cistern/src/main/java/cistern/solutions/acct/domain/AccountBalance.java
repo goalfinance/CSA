@@ -112,16 +112,16 @@ public class AccountBalance implements Serializable {
 	/**
 	 * 期末贷方发生笔数
 	 */
-	private Long ClosingCreditCount = 0L;
+	private Long closingCreditCount = 0L;
 	
 	/**
 	 * 期末贷方发生额
 	 */
-	private BigDecimal ClosingCreditTotal = BigDecimal.ZERO;
+	private BigDecimal closingCreditTotal = BigDecimal.ZERO;
 	/**
 	 * 结转标志
 	 */
-	private Boolean CFFlg = false;
+	private Boolean cfFlg = false;
 	
 	/**
 	 * 备注
@@ -217,11 +217,11 @@ public class AccountBalance implements Serializable {
 
 	@Column(name="cf_flg")
 	public Boolean getCFFlg() {
-		return CFFlg;
+		return cfFlg;
 	}
 
 	public void setCFFlg(Boolean cFFlg) {
-		CFFlg = cFFlg;
+		cfFlg = cFFlg;
 	}
 
 	@Column(name="memo")
@@ -290,20 +290,20 @@ public class AccountBalance implements Serializable {
 	}
 
 	public void setClosingCreditCount(Long closingCreditCount) {
-		ClosingCreditCount = closingCreditCount;
+		closingCreditCount = closingCreditCount;
 	}
 
 	@Column(name="closing_cr_cnt")
 	public Long getClosingCreditCount() {
-		return ClosingCreditCount;
+		return closingCreditCount;
 	}
 
 	public void setClosingCreditTotal(BigDecimal closingCreditTotal) {
-		ClosingCreditTotal = closingCreditTotal;
+		closingCreditTotal = closingCreditTotal;
 	}
 
 	@Column(name="closing_cr_total")
 	public BigDecimal getClosingCreditTotal() {
-		return ClosingCreditTotal;
+		return closingCreditTotal;
 	}
 }

@@ -32,22 +32,22 @@ public class AccountBalanceSummaryInfo implements Serializable {
 	/**
 	 * 本期借方余额
 	 */
-	private BigDecimal DebitActiveTotal = BigDecimal.ZERO;
+	private BigDecimal debitActiveTotal = BigDecimal.ZERO;
 	
 	/**
 	 * 本期贷方余额
 	 */
-	private BigDecimal CreditActiveTotal = BigDecimal.ZERO;
+	private BigDecimal creditActiveTotal = BigDecimal.ZERO;
 	
 	/**
 	 * 期末借方余额
 	 */
-	private BigDecimal ClosingDebitTotal = BigDecimal.ZERO;
+	private BigDecimal closingDebitTotal = BigDecimal.ZERO;
 	
 	/**
 	 * 期末贷方余额
 	 */
-	private BigDecimal ClosingCreditTotal = BigDecimal.ZERO;
+	private BigDecimal closingCreditTotal = BigDecimal.ZERO;
 	
 	public AccountBalanceSummaryInfo() {
 		super();
@@ -70,34 +70,34 @@ public class AccountBalanceSummaryInfo implements Serializable {
 	}
 
 	public BigDecimal getDebitActiveTotal() {
-		return DebitActiveTotal;
+		return debitActiveTotal;
 	}
 
 	public void setDebitActiveTotal(BigDecimal debitActiveTotal) {
-		DebitActiveTotal = debitActiveTotal;
+		debitActiveTotal = debitActiveTotal;
 	}
 
 	public BigDecimal getCreditActiveTotal() {
-		return CreditActiveTotal;
+		return creditActiveTotal;
 	}
 
 	public void setCreditActiveTotal(BigDecimal creditActiveTotal) {
-		CreditActiveTotal = creditActiveTotal;
+		creditActiveTotal = creditActiveTotal;
 	}
 
 	public BigDecimal getClosingDebitTotal() {
-		return ClosingDebitTotal;
+		return closingDebitTotal;
 	}
 
 	public void setClosingDebitTotal(BigDecimal closingDebitTotal) {
-		ClosingDebitTotal = closingDebitTotal;
+		closingDebitTotal = closingDebitTotal;
 	}
 
 	public BigDecimal getClosingCreditTotal() {
-		return ClosingCreditTotal;
+		return closingCreditTotal;
 	}
 
 	public void setClosingCreditTotal(BigDecimal closingCreditTotal) {
-		ClosingCreditTotal = closingCreditTotal;
+		closingCreditTotal = closingCreditTotal;
 	}
 }

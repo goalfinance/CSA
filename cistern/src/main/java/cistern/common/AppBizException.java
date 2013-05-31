@@ -1,5 +1,7 @@
 package cistern.common;
 
+import java.util.Arrays;
+
 /**   
  * @project: Cistern	
  * @description: 应用业务异常类
@@ -52,7 +54,7 @@ public class AppBizException extends Exception {
 	}
 
 	public void setArgs(Object[] objects) {
-		args = objects;
+		args = Arrays.copyOf(objects, objects.length);
 	}
 
 	public String getTextMessage() {
