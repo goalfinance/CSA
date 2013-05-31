@@ -60,7 +60,7 @@ public class SimpleQueryUtil {
     }
     
     public static String getDefaultPersistenceAlias(String fromClause) {
-        int s = fromClause.indexOf(" ");
+        int s = fromClause.indexOf(' ');
         String aliasLeadStr;
         if (s < 0) {
             aliasLeadStr = fromClause;
@@ -68,7 +68,7 @@ public class SimpleQueryUtil {
             aliasLeadStr = fromClause.substring(s + 1);
         }
 
-        s = aliasLeadStr.indexOf(",");
+        s = aliasLeadStr.indexOf(',');
         if (s < 0) {
             return aliasLeadStr.trim();
         }

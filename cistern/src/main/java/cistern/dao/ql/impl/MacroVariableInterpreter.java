@@ -81,13 +81,13 @@ public class MacroVariableInterpreter {
                 throw new RuntimeException("Syntax error, expression=[" + expr + "]!");
             }
 
-            s = path.indexOf("?");
+            s = path.indexOf('?');
             String thenPart = null;
             String elsePart = null;
             if (s > 0) {
                 String thenElsePart = path.substring(s + 1);
                 path = path.substring(0, s);
-                int e = thenElsePart.indexOf(":");
+                int e = thenElsePart.indexOf(':');
                 if (e > 0) {
                     thenPart = thenElsePart.substring(0, e);
                     elsePart = thenElsePart.substring(e + 1);

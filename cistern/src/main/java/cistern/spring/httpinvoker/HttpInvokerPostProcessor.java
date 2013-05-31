@@ -498,15 +498,15 @@ public class HttpInvokerPostProcessor implements BeanPostProcessor,
 	public static final void main(String[] args) throws Exception {
 		String string = "<test1>dfsdfdsfsdfer34dsfsw4,.kl<test4>df34,[sdffsb<tes3>dfsrewv";
 		List<String> placeHolders = new ArrayList<String>();
-		int beginPos = string.indexOf("<");
+		int beginPos = string.indexOf('<');
 		while (beginPos != -1) {
-			int endPos = string.indexOf(">", beginPos);
+			int endPos = string.indexOf('>', beginPos);
 			if (endPos != -1) {
 				char[] target = new char[endPos - beginPos + 1];
 				string.getChars(beginPos, endPos + 1, target, 0);
 				placeHolders.add(String.valueOf(target));
 			}
-			beginPos = string.indexOf("<", endPos);
+			beginPos = string.indexOf('<', endPos);
 		}
 
 		for (String a : placeHolders) {

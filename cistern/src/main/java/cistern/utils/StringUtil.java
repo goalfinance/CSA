@@ -90,7 +90,7 @@ public class StringUtil {
 
 	public static Object asReflect(String value) {
 		try {
-			int idx = value.lastIndexOf(".");
+			int idx = value.lastIndexOf('.');
 			String className = value.substring(0, idx);
 			String fieldName = value.substring(idx + 1);
 			Class<?> c = Class.forName(className);
