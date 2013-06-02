@@ -6,7 +6,6 @@ package cistern.dao.hibernate.hibernate4;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -56,44 +55,9 @@ public class Hibernate4GenericDao<T, I extends Serializable, Q> extends
 	}
 
 	@Override
-	@Deprecated
-	public T getFirst(Q cond) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	@Deprecated
-	public T getFirstForUpdate(Q cond) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	@Deprecated
-	public List<T> loadForUpdate(Q cond) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public long count(Q cond) {
 		HQLQuery hqlQuery = simpleQueryFactory.genHQLQuery(cond);
 		return Hibernate4Util.countElements(getSession(), hqlQuery);
-	}
-
-	@Override
-	@Deprecated
-	public List<Object> sum(Q cond, List<String> propertyNames) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	@Deprecated
-	public Object simpleSum(Q cond, String propertyName) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -105,13 +69,6 @@ public class Hibernate4GenericDao<T, I extends Serializable, Q> extends
 		qrs.setFirst(firstResult);
 		
 		return qrs;
-	}
-
-	@Override
-	@Deprecated
-	public int bulkUpdate(Q cond, Map<String, Object> values) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	public SimpleQueryFactory getSimpleQueryFactory() {

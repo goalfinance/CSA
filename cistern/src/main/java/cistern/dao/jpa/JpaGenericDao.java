@@ -6,7 +6,6 @@ package cistern.dao.jpa;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -56,39 +55,9 @@ public class JpaGenericDao<T, I extends Serializable, Q> extends
 	}
 
 	@Override
-	public T getFirst(Q cond) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public T getFirstForUpdate(Q cond) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<T> loadForUpdate(Q cond) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public long count(Q cond) {
 		HQLQuery hqlQuery = simpleQueryFactory.genHQLQuery(cond);
 		return JpaUtil.countElements(getEntityManager(), hqlQuery);
-	}
-
-	@Override
-	public List<Object> sum(Q cond, List<String> propertyNames) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Object simpleSum(Q cond, String propertyName) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -100,12 +69,6 @@ public class JpaGenericDao<T, I extends Serializable, Q> extends
 		qrs.setFirst(firstResult);
 
 		return qrs;
-	}
-
-	@Override
-	public int bulkUpdate(Q cond, Map<String, Object> values) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	public SimpleQueryFactory getSimpleQueryFactory() {
