@@ -2,21 +2,21 @@ subprojects {
 	apply plugin: 'java'
 	apply plugin: 'eclipse'
 	
-	apply plugin: 'findbugs'
-	apply plugin: 'pmd'
+//	apply plugin: 'findbugs'
+//	apply plugin: 'pmd'
 	
-	apply plugin: "sonar-runner"
+//	apply plugin: "sonar-runner"
 	
-	sonarRunner {
-    	sonarProperties {
-	        property "sonar.host.url", "http://localhost:9000"
+//	sonarRunner {
+//    	sonarProperties {
+//	        property "sonar.host.url", "http://localhost:9000"
 //	        property "sonar.jdbc.url", "jdbc:oracle:thin:@localhost:1521:XE"
 //	        property "sonar.jdbc.driverClassName", "oracle.jdbc.OracleDriver"
 //	        property "sonar.jdbc.username", "sonar"
 //	        property "sonar.jdbc.password", "sonar"
-    }
-}
-	
+//    }
+
+
 	repositories{
 		maven{
 			url "http://localhost:8081/nexus/content/groups/public"
@@ -24,9 +24,15 @@ subprojects {
 	}
 	
 	dependencies{
-		compile group: 'com.goalfinance.core.dependency', name: 'spring-deps', version: '1.0.0'
-		compile group: 'org.hibernate', name: 'hibernate-core', version: '4.2.2.Final'
-		compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '4.2.2.Final'
+		compile group: 'org.springframework', name: 'spring-core', version: '4.0.2.RELEASE'
+		compile group: 'org.springframework', name: 'spring-test', version: '4.0.2.RELEASE'
+		compile group: 'org.springframework', name: 'spring-aop', version: '4.0.2.RELEASE'
+		compile group: 'org.springframework', name: 'spring-aspects', version: '4.0.2.RELEASE'
+		compile group: 'org.springframework', name: 'spring-webmvc', version: '4.0.2.RELEASE'
+		compile group: 'org.springframework', name: 'spring-orm', version: '4.0.2.RELEASE'	
+		compile group: 'org.hibernate', name: 'hibernate-core', version: '4.3.4.Final'
+		compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '4.3.4.Final'
 		testCompile group: 'junit', name: 'junit', version: '4.11'
 	}
+	
 }
